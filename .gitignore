@@ -1,10 +1,13 @@
 /node_modules
+/public/build
 /public/hot
 /public/storage
 /storage/*.key
 /vendor
+.upgrade-tmp
 .env
 .env.backup
+/database/*.sqlite
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

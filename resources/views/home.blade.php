@@ -13,13 +13,13 @@
                 <a href="#">Add New Post</a>
             </div>
             <div class="d-flex">
-                <div class="pr-3"><strong>Author</strong></div>
-                <div class="pr-3"><strong>is</strong></div>
-                <div class="pr-3"><strong>Chang Wei Hong</strong></div>
+                <div class="pe-3"><strong>Author</strong></div>
+                <div class="pe-3"><strong>is</strong></div>
+                <div class="pe-3"><strong>Chang Wei Hong</strong></div>
 
             </div>
 
-            <div class="pt-4 font-weight-bold">{{ $user->profile-> title }}</div>
+            <div class="pt-4 fw-bold">{{ $user->profile-> title }}</div>
             <div>{{ $user->profile-> description }}</div>
             <div><a href="#">{{ $user->profile-> url }}</a></div>
         </div>

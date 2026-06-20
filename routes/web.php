@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\FollowController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Mail\NewUserWelcomeMail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,20 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Auth::routes();
 
-Route::get('/email', function() {
-    return new NewUserWelcomeMail();
+Route::get('/email', function () {
+    return new NewUserWelcomeMail;
 });
 
-Route::get('/profile/{user}', 'ProfileController@index')->name('profile.index');
-Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
-Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
+Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('/search', [ProfileController::class, 'search'])->middleware('auth')->name('profiles.search');
 
-Route::get('/', 'PostController@index');
-Route::get('/p/create', 'PostController@create');
-Route::post('/p', 'PostController@store');
-Route::get('/p/{post}', 'PostController@show');
+Route::get('/', [PostController::class, 'index']);
+Route::get('/p/create', [PostController::class, 'create']);
+Route::post('/p', [PostController::class, 'store']);
+Route::get('/p/{post}', [PostController::class, 'show']);
 
-Route::post('follow/{user}', 'FollowController@store');
+Route::post('follow/{user}', [FollowController::class, 'store']);
