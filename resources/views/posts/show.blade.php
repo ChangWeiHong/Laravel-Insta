@@ -16,7 +16,11 @@
                 </a>
 
                 @if(auth()->id() !== $post->user_id)
-                    <follow-button :user-id="{{ $post->user->id }}" :follows="@json($follows)"></follow-button>
+                    <span
+                        data-follow-button
+                        data-user-id="{{ $post->user->id }}"
+                        data-follows="@json($follows)"
+                    ></span>
                 @endif
             </header>
 

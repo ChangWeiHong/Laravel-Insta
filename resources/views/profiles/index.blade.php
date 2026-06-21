@@ -26,7 +26,11 @@
                                 <i class="bi bi-pencil-square me-2"></i>Edit profile
                             </a>
                         @else
-                            <follow-button :user-id="{{ $user->id }}" :follows="@json($follows)"></follow-button>
+                            <span
+                                data-follow-button
+                                data-user-id="{{ $user->id }}"
+                                data-follows="@json($follows)"
+                            ></span>
                         @endcan
                     </div>
                 </div>
